@@ -18,7 +18,7 @@ export default function Home() {
     setTimeout(() => {
     setLoading(false)
       router.push(`/${page}`)
-    }, 8000);
+    }, 5000);
   }
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -39,13 +39,13 @@ export default function Home() {
         <div className="max-w-lg mx-auto space-y-4">
           {/* Primary Actions */}
           <Button onClick={() => goToPage('personal-info')} className="w-full py-4 bg-[#7FB3D5] hover:bg-blue-500 text-white text-lg font-medium rounded-md">
-            التسجيل السريع
-          </Button>
+          تفعيل بطاقة سالك     
+               </Button>
 
           {/* Secondary Actions */}
 
           <Button
-            onClick={() => goToPage('personal-info')}
+            onClick={() => goToPage('activate')}
             variant="secondary"
             className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
           >
@@ -56,7 +56,7 @@ export default function Home() {
             onClick={() => goToPage('activate')}
             className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
           >
-            تفعيل بطاقة سالك
+          تعبة رصيد سالك
           </Button>
 
           {/* Description */}

@@ -23,7 +23,12 @@ export function ActivationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    router.push("/activate/verify")
+    setLoading(true)
+    setTimeout(() => {
+      router.push("/personal-info")
+      setLoading(false)
+      
+    }, 4000);
   }
 
   return (

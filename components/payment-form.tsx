@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CreditCard, Calendar, ShieldCheck } from "lucide-react"
+import FullPageLoader from "./full-page-loader"
 
 export function PaymentForm() {
   const router = useRouter()
@@ -18,47 +19,52 @@ export function PaymentForm() {
     expiryYear: "",
     cvv: "",
   })
+  const [loading, setLoading] = useState(false) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true)
+    setTimeout(() => {
     router.push("/success")
+      
+    }, 3000);
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8"> <div className="flex items-center gap-3">
+    <CreditCard className="h-8 w-8" />
+    <span className="text-xl font-medium">البطاقة الائتمانية</span>
+  </div>
       <div className="bg-gradient-to-r from-salik-primary to-salik-dark p-6 rounded-lg text-white flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <CreditCard className="h-8 w-8" />
-          <span className="text-xl font-medium">البطاقة الائتمانية</span>
-        </div>
-        <div className="flex items-center gap-3">
+       
+        <div className="grid grid-cols-4  gap-5 ">
           <Image
-            src="/vm.png"
+            src="/vv.png"
             alt="Visa"
-            height={30}
-            width={50}
+            height={60}
+            width={60}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
             src="/mm.png"
             alt="Mastercard"
-            height={30}
-            width={50}
+            height={60}
+            width={60}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
             src="/ay.png"
             alt="Apple Pay"
-            height={30}
-            width={50}
+            height={60}
+            width={60}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
-            src="/mada.png"
+            src="/md.png"
             alt="Mada"
-            height={30}
-            width={50}
-            className="opacity-90 hover:opacity-100 transition-opacity"
+            height={60}
+            width={60}
+            className="opacity-90 hover:opacity-100 transition-opacity mt-2"
           />
         </div>
       </div>
@@ -168,6 +174,8 @@ export function PaymentForm() {
             تأكيد
           </Button>
         </div>
+      {loading&& <FullPageLoader/>}
+
       </form>
     </div>
   )
