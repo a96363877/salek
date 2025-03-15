@@ -37,7 +37,6 @@ export function VerificationForm() {
           />
         </div>
       </div>
-
       <div className="text-center space-y-4">
         <p className="text-salik-secondary">
           تم ارسال رمز التحقق الى جوالك قم بادخال الرمز المستلم بواسطة رسالة نصية قصيرة واضغط على زر التحقق
