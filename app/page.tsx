@@ -63,10 +63,10 @@ export default function Home() {
 
             {/* Quick Links */}
             <div className="space-y-2">
-              <Link href="/registration" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
+              <Link href="/personal-info" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
                 <span className="text-gray-700">طريقة التسجيل</span>
               </Link>
-              <Link href="/topup" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
+              <Link href="/personal-info" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
                 <span className="text-gray-700">تعبئة رصيد سالك</span>
               </Link>
             </div>
@@ -83,7 +83,7 @@ export default function Home() {
                   "تعبئة رصيد سالك",
                   "شراء بطاقة سالك",
                 ].map((service) => (
-                  <Link key={service} href="#" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
+                  <Link key={service} href="/personal-info" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
                     <span className="text-gray-700">{service}</span>
                   </Link>
                 ))}
@@ -102,7 +102,7 @@ export default function Home() {
                   <span className="text-gray-700">BOT SALIK (22545)</span>
                 </div>
                 <Link
-                  href="/faq"
+                  href="/personal-info"
                   className="flex items-center gap-2 p-4 bg-white rounded-md shadow-sm hover:bg-gray-50"
                 >
                   <MessageSquare className="h-5 w-5 text-gray-500" />
