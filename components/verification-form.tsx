@@ -28,9 +28,9 @@ export function VerificationForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="flex justify-center mb-6">
-        <div className="relative w-48 h-48 animate-pulse-light">
+        <div className="relative w-32 h-32 animate-pulse-light">
           <Image
-            src="/"
+            src="/otp.png"
             alt="Verification"
             fill
             className="object-contain"

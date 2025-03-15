@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Circle } from "lucide-react"
+import FullPageLoader from "./full-page-loader"
 
 export function ActivationForm() {
   const router = useRouter()
@@ -17,6 +18,8 @@ export function ActivationForm() {
     trafficFileNumber: "",
     acceptTerms: false,
   })
+
+  const [loading, setLoading] = useState(false) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -47,6 +50,9 @@ export function ActivationForm() {
               className="salik-input"
               placeholder="أدخل رقم البطاقة ورمز التفعيل"
               value={formData.cardNumber}
+            type="tel"
+            required
+              maxLength={12}
               onChange={(e) => setFormData({ ...formData, cardNumber: e.target.value })}
             />
           </div>
@@ -60,8 +66,10 @@ export function ActivationForm() {
             <label className="block text-lg font-medium text-salik-dark mb-2">رقم هاتفك المتحرك</label>
             <p className="text-sm text-gray-500 mb-3">هذا الرقم سيستخدم لجميع عمليات التواصل مع سالك</p>
             <Input
+            type="tel"
               className="salik-input"
               placeholder="أدخل رقم هاتفك المتحرك"
+              maxLength={12}
               value={formData.phoneNumber}
               onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
             />
@@ -109,6 +117,7 @@ export function ActivationForm() {
       <Button type="submit" className="w-full salik-button-secondary" disabled={!formData.acceptTerms}>
         استمرار
       </Button>
+      {loading&& <FullPageLoader/>}
     </form>
   )
 }

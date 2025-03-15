@@ -55,13 +55,10 @@ export default function FullPageLoader({ message = "جاري التحميل...",
   // Loading phase messages
   const getPhaseMessage = () => {
     switch (loadingPhase) {
+     
       case 0:
-        return "تهيئة التطبيق"
-      case 1:
         return "تحميل البيانات"
-      case 2:
-        return "تجهيز الواجهة"
-      case 3:
+      case 1:
         return "اكتمال التحميل"
       default:
         return "جاري التحميل"

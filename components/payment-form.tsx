@@ -33,28 +33,28 @@ export function PaymentForm() {
         </div>
         <div className="flex items-center gap-3">
           <Image
-            src="/placeholder.svg?height=30&width=50"
+            src="/vm.png"
             alt="Visa"
             height={30}
             width={50}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
-            src="/placeholder.svg?height=30&width=50"
+            src="/mm.png"
             alt="Mastercard"
             height={30}
             width={50}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
-            src="/placeholder.svg?height=30&width=50"
+            src="/ay.png"
             alt="Apple Pay"
             height={30}
             width={50}
             className="opacity-90 hover:opacity-100 transition-opacity"
           />
           <Image
-            src="/placeholder.svg?height=30&width=50"
+            src="/mada.png"
             alt="Mada"
             height={30}
             width={50}
