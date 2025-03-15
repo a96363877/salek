@@ -1,11 +1,24 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Share2, Download, Bike, HelpCircle, Bot, MessageSquare } from "lucide-react"
 import { NewsSection } from "@/components/news-section"
 import { AppDownload } from "@/components/app-download"
-
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import FullPageLoader from "@/components/full-page-loader"
 export default function Home() {
+  const [loading, setLoading] = useState(true)
+  const router = useRouter()
+  const goToPage = (page: string) => {
+    setLoading(true)
+    setTimeout(() => {
+    setLoading(false)
+
+      router.push(`/${page}`)
+    }, 3000);
+  }
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -24,24 +37,26 @@ export default function Home() {
       <div className="container mx-auto px-4 -mt-10 relative z-10 flex-1 pb-20">
         <div className="max-w-lg mx-auto space-y-4">
           {/* Primary Actions */}
-          <Button className="w-full py-4 bg-[#7FB3D5] hover:bg-blue-500 text-white text-lg font-medium rounded-md">
+          <Button onClick={() => goToPage('personal-info')} className="w-full py-4 bg-[#7FB3D5] hover:bg-blue-500 text-white text-lg font-medium rounded-md">
             التسجيل السريع
           </Button>
 
           {/* Secondary Actions */}
-     
-            <Button
-              variant="secondary"
-              className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
-            >
+
+          <Button
+            onClick={() => goToPage('personal-info')}
+            variant="secondary"
+            className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
+          >
             شراء بطاقة سالك
-      </Button>
-      <Button
-              variant="secondary"
-              className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
-            >
-          تفعيل بطاقة سالك
-      </Button>
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => goToPage('personal-info')}
+            className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
+          >
+            تفعيل بطاقة سالك
+          </Button>
 
           {/* Description */}
           <div className="text-center mt-8 space-y-2">
@@ -123,6 +138,7 @@ export default function Home() {
       {/* Add the new sections */}
       <NewsSection />
       <AppDownload />
+      {loading && <FullPageLoader/>}
     </div>
   )
 }
