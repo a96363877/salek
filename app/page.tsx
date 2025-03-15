@@ -53,7 +53,7 @@ export default function Home() {
           </Button>
           <Button
             variant="secondary"
-            onClick={() => goToPage('activate')}
+            onClick={() => goToPage('topup')}
             className="w-full py-4 bg-gray-700 hover:bg-gray-800 text-white text-lg font-medium rounded-md"
           >
           تعبة رصيد سالك
