@@ -21,7 +21,7 @@ export default function TopupPage() {
             </Card>
           </Link>
 
-          <Link href="/topup/code">
+          <Link href="/personal-info">
             <Card className="p-12 text-center hover:shadow-lg transition-shadow cursor-pointer group">
               <div className="flex flex-col items-center gap-6">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-blue-50 transition-colors">
