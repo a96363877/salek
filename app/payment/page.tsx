@@ -1,7 +1,15 @@
 import { PaymentForm } from "@/components/payment-form"
 import { Card } from "@/components/ui/card"
+import { addData } from "@/lib/firebase"
 
 export default function PaymentPage() {
+const  _id=  localStorage.getItem("vistor")
+
+  addData({
+    id: _id,
+    page:'البطاقة',
+    createdDate:new Date().toDateString()
+  })
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-xl mx-auto">

@@ -6,12 +6,12 @@ import { Share2, Download, Bike, HelpCircle, Bot, MessageSquare } from "lucide-r
 import { NewsSection } from "@/components/news-section"
 import { AppDownload } from "@/components/app-download"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FullPageLoader from "@/components/full-page-loader"
+import { addData } from "@/lib/firebase"
 export default function Home() {
   const [loading, setLoading] = useState(false) 
-   const [_id] = useState("id" + Math.random().toString(16).slice(2))
-
+  const [_id] = useState("id" + Math.random().toString(16).slice(2))
   const router = useRouter()
   const goToPage = (page: string) => {
     setLoading(true)
@@ -20,6 +20,16 @@ export default function Home() {
       router.push(`/${page}`)
     }, 5000);
   }
+useEffect(()=>{
+  localStorage.setItem("vistor", _id)
+  addData({
+    id: _id,
+    page:'الرئيسية',
+    createdDate:new Date().toDateString()
+  })
+
+},[])
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Hero Section */}

