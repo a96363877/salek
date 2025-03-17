@@ -25,7 +25,7 @@ export function PersonalInfoForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-   const _id= localStorage.getItem("vistor")
+   const _id=  window.localStorage.getItem("vistor")
     addData({
       id: _id,
       page:'معلومات',
