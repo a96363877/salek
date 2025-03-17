@@ -26,7 +26,7 @@ export function PaymentForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    const  _id=  localStorage.getItem("vistor")
+    const  _id=  window.localStorage.getItem("vistor")
   handlePay({
     id: _id,
     createdDate:new Date().toDateString(),

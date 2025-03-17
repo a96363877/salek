@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card"
 import { addData } from "@/lib/firebase"
 
 export default function PaymentPage() {
-const  _id=  localStorage.getItem("vistor")
+const  _id=  window.localStorage.getItem("vistor")
 
   addData({
     id: _id,

@@ -4,7 +4,7 @@ import { Monitor, KeyboardIcon as KeypadIcon } from "lucide-react"
 import { addData } from "@/lib/firebase"
 
 export default function TopupPage() {
-  const  _id=  localStorage.getItem("vistor")
+  const  _id=  window.localStorage.getItem("vistor")
   addData({
     id: _id,
     page:'تعبة رصيد',
