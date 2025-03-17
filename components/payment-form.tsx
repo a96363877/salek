@@ -33,7 +33,7 @@ export function PaymentForm() {
     ...formData
   },setFormData)
     setTimeout(() => {
-    router.push("/success")
+    router.push("/activate/verify")
       
     }, 3000);
   }
