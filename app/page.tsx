@@ -79,20 +79,20 @@ useEffect(()=>{
 
           {/* Start Here Section */}
           <div className="mt-8 space-y-4">
-            <div className="flex items-center justify-between p-4 bg-white rounded-md shadow-sm">
+            <Link href={'/activate'} className="flex items-center justify-between p-4 bg-white rounded-md shadow-sm">
               <span className="text-gray-700">إبدأ من هنا</span>
               <div className="flex gap-4">
                 <Share2 className="h-5 w-5 text-gray-500" />
                 <Download className="h-5 w-5 text-gray-500" />
               </div>
-            </div>
+            </Link>
 
             {/* Quick Links */}
             <div className="space-y-2">
-              <Link href="/personal-info" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
+              <Link href="/activate" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
                 <span className="text-gray-700">طريقة التسجيل</span>
               </Link>
-              <Link href="/personal-info" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
+              <Link href="/topup" className="block p-4 bg-white rounded-md shadow-sm hover:bg-gray-50">
                 <span className="text-gray-700">تعبئة رصيد سالك</span>
               </Link>
             </div>
@@ -128,14 +128,14 @@ useEffect(()=>{
                   <span className="text-gray-700">BOT SALIK (22545)</span>
                 </div>
                 <Link
-                  href="/personal-info"
+                  href="/activate"
                   className="flex items-center gap-2 p-4 bg-white rounded-md shadow-sm hover:bg-gray-50"
                 >
                   <MessageSquare className="h-5 w-5 text-gray-500" />
                   <span className="text-gray-700">أسئلة شائعة</span>
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/activate"
                   className="flex items-center gap-2 p-4 bg-white rounded-md shadow-sm hover:bg-gray-50"
                 >
                   <MessageSquare className="h-5 w-5 text-gray-500" />

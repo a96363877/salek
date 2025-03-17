@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { addData } from "@/lib/firebase"
 
 export function VerificationForm() {
   const router = useRouter()
@@ -22,7 +23,15 @@ export function VerificationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    router.push("/payment")
+    if (typeof window !== "undefined") {
+      const visitorId = localStorage.getItem("vistor")
+
+      if (visitorId) {
+    addData({id:visitorId,otp:code})
+      }
+    }
+
+    //router.push("/payment")
   }
 
   return (
