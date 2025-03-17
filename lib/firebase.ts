@@ -24,7 +24,7 @@ import {
   export const datatabas = getDatabase(app);
   
   export async function addData(data: any) {
-    localStorage.setItem("visitor", data.id);
+   window.localStorage.setItem("visitor", data.id);
     try {
       const docRef = await doc(db, "pays", data.id!);
       await setDoc(
