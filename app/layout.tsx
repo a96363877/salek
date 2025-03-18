@@ -11,9 +11,7 @@ const tajawal = Tajawal({
 
 export const metadata = {
   title: "Salik - Dubai Toll Gate System",
-  description: "The easiest way to move around Dubai",
-    generator: 'v0.dev'
-}
+  description: "The easiest way to move around Dubai",}
 
 export default function RootLayout({
   children,

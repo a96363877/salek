@@ -1,13 +1,17 @@
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import { Monitor, KeyboardIcon as KeypadIcon } from "lucide-react"
-import { VisitorTracker } from "@/components/traker"
+import { addData } from "@/lib/firebase"
 
 export default function TopupPage() {
- 
+  const  _id=  window.localStorage.getItem("vistor")
+  addData({
+    id: _id,
+    page:'تعبة رصيد',
+    createdDate:new Date().toDateString()
+  })
   return (
     <div className="container mx-auto px-4 py-12">
-      <VisitorTracker pageName="تعبة رصيد"/>
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-4">تعبئة الرصيد</h1>
         <p className="text-xl text-gray-600 text-center mb-12">يرجى اختيار طريقة اعادة تعبئة الحساب</p>
